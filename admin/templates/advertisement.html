@@ -1,0 +1,63 @@
+{%extends "admin_base.html"%}
+
+{% block content %}
+<div id="right-panel" class="right-panel">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <div class="card">
+
+                        <form id="productCreateForm" action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="hidden" name='table' value="room">
+                            <div class="card-header">
+                                <strong>웹사이트 내용 수정</strong>
+                            </div>
+
+                            <div class="card-body card-block">
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">광고 시작일</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="date" name="start" class="form-control" value="{{advertisement.start}}"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">광고 종료일</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="date" name="end" class="form-control" value="{{advertisement.end}}" required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">이미지</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <img src="/media/{{advertisement.image}}" alt="">
+                                        <input type="file" name="image">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- footer -->
+                            <div class="card-footer" style="text-align: right;">
+                                <button type="submit" class="btn btn-outline-primary btn-sm" form="productCreateForm">
+                                    수정하기
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}

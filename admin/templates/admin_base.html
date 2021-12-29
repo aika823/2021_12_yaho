@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <title>관리자 페이지</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+
+    <link rel="stylesheet" href="/static/admin/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/admin/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/admin/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/static/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/static/admin/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/static/admin/assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- data table -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    {% block extraheads %}{% endblock %}
+</head>
+
+<body>
+    <!-- navbar -->
+    {% include 'navbar.html' %}
+
+    {% block content %}{% endblock content %}
+    <!-- admin -->
+    <script src="/static/admin/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/static/admin/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/static/admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/admin/assets/js/main.js"></script>
+    <script src="/static/admin/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="/static/admin/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="/static/admin/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- data table -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js">
+    </script>
+    {% block extrascripts %}{% endblock %}
+</body>
+
+</html>

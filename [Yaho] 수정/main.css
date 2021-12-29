@@ -1,0 +1,270 @@
+html {
+  scroll-behavior: smooth;
+  /* background-color: #F5F5F5; */
+}
+
+body,
+html {
+  width: 100%;
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+  height: 100%;
+}
+body {
+  overflow-x: hidden;
+  max-width: 2300px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: 'BeVietnam';
+  src: url('../fonts/BeVietnam-Bold.ttf') format('ttf'),
+       url('../fonts/BeVietnam-Regular.ttf') format('ttf');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.vietnamese {
+  font-family: 'BeVietnam';
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+input::placeholder {
+  color: #BCBCBC;
+}
+
+.content {
+  max-width: 2300px;
+  width: 160px;
+}
+/* .content--margin {
+ margin: 0 270px;
+} */
+
+/* 각 섹션 제목 */
+.page-title {
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+  padding: 0 0 100px;
+  font-family: 'Jua', sans-serif;
+  color: #FF9051;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.page-subtitle h2 {
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  padding: 0 0 30px;
+}
+
+.page-title.vietnamese {
+  font-family: 'BeVietnam';
+}
+
+/* header */
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: fixed;
+  top: 0%;
+}
+
+header .header-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FF9051;
+  color: #fff;
+  width: 100%;
+  padding: 20px 0;
+}
+
+header .header-left h2 a {
+  color: #fff;
+  margin-left: 20px;
+}
+
+header .header-left h2 a img {
+  vertical-align: bottom;
+  width: 130px;
+}
+
+header .header-left {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+header .header-right a {
+  margin-right: 50px;
+  font-size: 20px;
+  color: #FF9051;
+  padding: 10px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+
+/* footer */
+footer {
+  background-color: #FFF5EF;
+}
+footer .footer-wrap {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 80%;
+  align-items: center;
+  /* justify-items: center; */
+  padding: 30px 0;
+  margin: 0 auto;
+}
+footer .footer-info {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  text-align: left;
+  margin-left: 100px;
+}
+footer div p {
+  text-align: left;
+  font-size: 14px;
+}
+footer div span {
+  font-weight: 600;
+}
+
+
+
+/* input custom */
+.ck-button {
+  margin: 10px 0;
+  background-color: #D6EEFF;
+  border-radius: 10px;
+  overflow: auto;
+  color: #0066FF;
+  font-size: 18px;
+}
+.ck-button.btn-level {
+  background-color: #fff;
+  color: #BCBCBC;
+  font-size: 70px;
+  font-weight: 600;
+}
+
+.ck-button label {
+  width: 4.0em;
+}
+
+.ck-button label span,
+.ck-button label h2 {
+  text-align: center;
+  display: block;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ck-button label span.level {
+  display: inline-block;
+}
+
+.ck-button label input {
+  position: absolute;
+  top: -20px;
+  visibility: hidden;
+}
+
+.ck-button input:checked+span {
+  background-color: #0066FF;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+.ck-button input:checked+span.level {
+  background-color: #fff;
+  color: #0066FF;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 80%;
+  margin: 0 auto;
+  justify-items: center;
+  align-items: flex-start;
+  column-gap: 100px;
+}
+
+.circle-wrap {
+  width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #FFB547;
+  box-sizing: border-box;
+}
+.circle-wrap img {
+  width: 100%;
+}
+.column-text {
+  text-align: center;
+  white-space: pre-line;
+}
+
+
+/* language-controller */
+.language-controller {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  gap: 10px;
+  z-index: 2;
+}
+.language-controller a {
+  display: inline-block;
+  width: 30px;
+}
+.language-controller a img {
+  width: 100%;
+}
+
+.korean {
+  display: block;
+}
+.english {
+  display: none;
+}
+.vietnamese {
+  display: none;
+}
+
+span.bold {
+  font-weight: 600;
+}

@@ -1,0 +1,73 @@
+{%extends "admin_base.html"%}
+
+{% block content %}
+<div id="right-panel" class="right-panel">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <div class="card">
+
+                        <form id="productCreateForm" action="/admin/edit" method="post" class="form-horizontal">
+                            {% csrf_token %}
+                            <input type="hidden" name='table' value="room">
+                            <div class="card-header">
+                                <strong>웹사이트 내용 수정</strong>
+                            </div>
+
+                            <div class="card-body card-block">
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">튜터 수</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" name="tutor" class="form-control"
+                                            value="{{information.tutor}}"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">누적시간</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" name="time" class="form-control" value="{{information.time}}"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">연장률</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" name="extend" class="form-control" value="{{information.extend}}"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">기준일</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="date" name="date" class="form-control"
+                                            value="{{information.date}}" required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- footer -->
+                            <div class="card-footer" style="text-align: right;">
+                                <button type="submit" class="btn btn-outline-primary btn-sm" form="productCreateForm">
+                                    수정하기
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}

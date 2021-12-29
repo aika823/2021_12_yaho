@@ -1,0 +1,272 @@
+{%extends "admin_base.html"%}
+
+{% block content %}
+<div id="right-panel" class="right-panel">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <div class="card">
+
+                        {% if function == "update" %}
+                        <form id="deleteForm" action="/admin/delete" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="table" value="room">
+                            <input type="hidden" name="id" value="{{item.id}}">
+                        </form>
+                        {% endif %}
+
+                        <form id="productCreateForm" action="/admin/create" method="post" enctype="multipart/form-data"
+                            class="form-horizontal">
+
+                            {% csrf_token %}
+                            <input type="hidden" name='table' value="room">
+
+                            {% if function == "create" %}
+                            <input type="hidden" name='type_id' value="{{type.id}}">
+                            <input type="hidden" name='action' value="create">
+                            {% elif function == "update" %}
+                            <input type="hidden" name='action' value="update">
+                            <input type="hidden" name='id' value="{{item.id}}">
+                            {% endif %}
+
+                            <div class="card-header">
+                                {% if function == 'create' %}
+                                <strong>{{type.name}} 타입 객실 추가</strong>
+                                {% elif function == 'update' %}
+                                <strong>객실 {{item.name}} ({{item.type.name}} 타입) </strong>
+                                {% endif %}
+                            </div>
+
+                            <div class="card-body card-block">
+
+                                {% if function == 'update' %}
+                                <!-- type -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">객실 타입</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <select name="type_id" class="form-control">
+                                            {% for type in type_list %}
+                                            {% if item.type.id == type.id %}
+                                            <option value="{{type.id}}" selected>{{type.name}}</option>
+                                            {% else %}
+                                            <option value="{{type.id}}">{{type.name}}</option>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                <!-- name -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">이름</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" name="name" class="form-control" value="{{item.name}}"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <!-- detail -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">설명</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" name="detail" class="form-control" value="{{item.detail}}"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <!-- garden -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">garden</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <textarea name="garden" class="form-control">{{item.garden}}</textarea>
+                                    </div>
+                                </div>
+
+                                <!-- garden -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">bedroom</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <textarea name="bedroom" class="form-control">{{item.bedroom}}</textarea>
+                                    </div>
+                                </div>
+
+                                <!-- kitchen -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">kitchen</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <textarea name="kitchen" class="form-control">{{item.kitchen}}</textarea>
+                                    </div>
+                                </div>
+
+                                <!-- bathroom -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">bathroom</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <textarea name="bathroom" class="form-control">{{item.bathroom}}</textarea>
+                                    </div>
+                                </div>
+
+                                <!-- livingroom -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">livingroom</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <textarea name="livingroom" class="form-control">{{item.livingroom}}</textarea>
+                                    </div>
+                                </div>
+
+                                <!-- 적정 인원 -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">적정 인원</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="number" name="people_num_min" class="form-control"
+                                            value="{{item.people_num_min}}" />
+                                    </div>
+                                </div>
+
+                                <!-- 최대 인원 -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">최대 인원</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="number" name="people_num_max" class="form-control"
+                                            value="{{item.people_num_max}}" />
+                                    </div>
+                                </div>
+
+                                <!-- 평일 요금 -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">평일 요금</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <textarea name="price_normal"
+                                            class="form-control">{{item.price_normal}}</textarea>
+                                    </div>
+                                </div>
+
+                                <!-- 주말/성수기 요금 -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">주말/성수기 요금</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <textarea name="price_weekend"
+                                            class="form-control">{{item.price_weekend}}</textarea>
+                                    </div>
+                                </div>
+
+                                <!-- image -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="imageInput1" class=" form-control-label">대표이미지</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <img id="productImage1" src="/media/{{item.thumbnail}}" alt=""
+                                            onclick="open_image_input(1)">
+                                        <input type="file" id="imageInput1" name="thumbnail" class="form-control-file">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- footer -->
+                            <div class="card-footer" style="text-align: right;">
+                                <button type="submit" class="btn btn-outline-primary btn-sm" form="productCreateForm">
+                                    {% if function == "create" %}
+                                    추가하기
+                                    {% elif function == "update" %}
+                                    수정하기
+                                    {% endif %}
+                                </button>
+                                {% if function == "update" %}
+                                <button type="submit" class="btn btn-outline-danger btn-sm"
+                                    form="deleteForm">삭제하기</button>
+                                {% endif%}
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <!-- 객실 이미지 -->
+                <div class="col-lg-6">
+
+                    <div class="card">
+
+                        <!-- 객실 이미지 삭제 -->
+                        <form id="deleteImageForm" action="/admin/delete" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="table" value="room_image">
+                            <input type="hidden" name="room_image_id" value="">
+                        </form>
+
+                        <!-- 객실 이미지 수정 -->
+                        <form id="imageForm" action="/admin/update_image" method="post" enctype="multipart/form-data"
+                            class="form-horizontal">
+
+                            {% csrf_token %}
+                            <input type="hidden" name='table' value="room">
+                            <input type="hidden" name='action' value="update">
+                            <input type="hidden" name='room_id' value="{{item.id}}">
+
+                            <div class="card-header">
+                                <strong>객실 이미지</strong>
+                            </div>
+
+                            <div class="card-body card-block">
+
+                                <!-- image -->
+                                <div class="row form-group">
+                                    {% for room_image in item.image_list %}
+                                    <div class="col col-md-4">
+                                        <img src="/media/{{room_image.image.image}}" class="image-changable" alt=""
+                                            onclick="openImageUpdateInput({{forloop.counter0}})">
+
+                                        <button type="button" style="width:100%" class="btn btn-outline-danger btn-sm"
+                                            onclick="deleteImage({{forloop.counter0}})">
+                                            삭제
+                                        </button>
+
+                                        <input class="image-id" type="hidden" name="room_image_id[]"
+                                            value="{{room_image.id}}">
+                                        <input type="hidden" name="room_image_index[]" class="image-index">
+                                        <input type="file" name="image_update[]" style="opacity:0"
+                                            class="input-update-image" onchange="onChangeImage({{forloop.counter0}})">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="multipleImageInput" class=" form-control-label">이미지 추가 </label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="file" id="multipleImageInput" name="image_list"
+                                            class="form-control-file" multiple>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- footer -->
+                            <div class="card-footer" style="text-align: right;">
+                                <button type="submit" class="btn btn-outline-primary btn-sm"
+                                    form="imageForm">수정하기</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
