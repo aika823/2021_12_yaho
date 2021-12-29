@@ -21,7 +21,7 @@
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label class=" form-control-label">광고 시작일</label></div>
                                     <div class="col-12 col-md-9">
-                                        <input type="date" name="start" class="form-control" value="{{advertisement.start}}"
+                                        <input type="date" name="start" class="form-control" value="{{advertisement.start | date:'Y-m-d'}}"
                                             required>
                                     </div>
                                 </div>
@@ -29,7 +29,8 @@
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label class=" form-control-label">광고 종료일</label></div>
                                     <div class="col-12 col-md-9">
-                                        <input type="date" name="end" class="form-control" value="{{advertisement.end}}" required>
+                                        <input type="date" name="end" class="form-control"
+                                            value="{{advertisement.end | date:'Y-m-d'}}" required>
                                     </div>
                                 </div>
 
