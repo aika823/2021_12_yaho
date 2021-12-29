@@ -259,13 +259,13 @@ footer div span {
 }
 
 .korean {
-  display: block;
+  display: none;
 }
 .english {
   display: none;
 }
 .vietnamese {
-  display: none;
+  display: block;
 }
 
 span.bold {
