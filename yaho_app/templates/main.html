@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="/static/css/main.css">
   <link rel="stylesheet" href="/static/css/style.css">
 
+  <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
   <title>Yaho</title>
 </head>
 
@@ -36,7 +39,6 @@
         <h2>
           <a href="./index.html">
             <img src="/static/images/logo.png" alt="">
-            <!-- bot119 -->
           </a>
         </h2>
       </div>
@@ -87,13 +89,13 @@
   <!-- section.service start -->
   <section class="service content">
     <h2 class="page-title korean">
-      야호는 믿을 수 있는 유아동 플레이튜터 매칭 서비스입니다.
+      야호는 믿을 수 있는 <br class="mobile">유아동 플레이튜터 매칭 서비스입니다.
     </h2>
     <h2 class="page-title english">
-      YAHO, Your Trustworthy On-demand Childcare Partner
+      YAHO, Your Trustworthy <br class="mobile">On-demand Childcare Partner
     </h2>
     <h2 class="page-title vietnamese">
-      YAHO, Đối tác chăm sóc trẻ theo yêu cầu đáng tin cậy của bạn
+      YAHO, Đối tác chăm sóc <br class="mobile">trẻ theo yêu cầu đáng tin cậy của bạn
     </h2>
     <div class="grid-3">
       <div class="column">
@@ -157,7 +159,7 @@
   <!-- section.target start -->
   <section class="target content">
     <h2 class="page-title korean">
-      ‘집콕 육아’, ‘돌봄 공백‘ 도움이 필요하시나요?
+      ‘집콕 육아’, ‘돌봄 공백‘<br class="mobile"> 도움이 필요하시나요?
     </h2>
     <h2 class="page-title english">
       Helping Hands for Parents and Children
@@ -233,13 +235,13 @@
   <!-- section.order start -->
   <section class="order">
     <h2 class="page-title korean">
-      우리 아이와 꼭 맞는 플레이튜터는 어떻게 찾을 수 있나요?
+      우리 아이와 꼭 맞는 플레이튜터는 <br class="mobile">어떻게 찾을 수 있나요?
     </h2>
     <h2 class="page-title english">
-      5 Simple Steps to Bring More Calm into Your Home
+      5 Simple Steps to Bring <br class="mobile">More Calm into Your Home
     </h2>
     <h2 class="page-title vietnamese">
-      5 Bước Đơn giản để Mang Đến Sự Bình Yên cho Ngôi Nhà của Bạn
+      5 Bước Đơn giản để Mang <br class="mobile">Đến Sự Bình Yên cho Ngôi Nhà của Bạn
     </h2>
     <div class="order-wrap">
       <div class="order-card" data-aos="fade-up" data-aos-duration="1000">
@@ -508,7 +510,7 @@
       </div>
       <div class="column">
         <h2 class="korean">베트남어 놀이돌봄</h2>
-        <h2 class="english">English<br>CARE SESSIONS</h2>
+        <h2 class="english">VIETNAMESE<br>CARE SESSIONS</h2>
         <h2 class="vietnamese">BUỔI HỌC BẰNG<br>TIẾNG VIIỆT</h2>
 
         <p class="price-text korean">
@@ -530,7 +532,7 @@
       </div>
       <div class="column">
         <h2 class="korean">동네친구 놀이돌봄</h2>
-        <h2 class="english">English<br>CARE SESSIONS</h2>
+        <h2 class="english">SMALL GROUP<br>CARE SESSIONS</h2>
         <h2 class="vietnamese">BUỔI HỌC NHÓM</h2>
 
         <p class="price-text korean">
@@ -1048,6 +1050,12 @@
   <script>
     $(function () {
       var windowWidth = window.matchMedia("screen and (max-width: 1200px)");
+      var windowHeight = window.matchMedia("screen and (max-height: 900px)");
+        if (windowWidth.matches) { 
+          $('.main-mockup').animate({'margin-bottom': '-100px','opacity': '1'}, 1300);
+          } else {
+            $('.main-mockup').animate({'margin-bottom': '-300px','opacity': '1'}, 1300);
+          }
       if (windowWidth.matches) {
         $('.main-mockup').animate({
           'margin-bottom': '-100px',
