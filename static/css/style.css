@@ -606,6 +606,7 @@ section.verification .text-wrap h2.vietnamese {
   }
   .grid-3 p {
     word-break: keep-all;
+    font-size: 16px;
   }
 
   section.order .order-wrap {
@@ -783,6 +784,13 @@ section.verification .text-wrap h2.vietnamese {
   }
   .page-title {
     padding: 50px 0;
+  }
+
+  section.verification .text-wrap h2 {
+    font-size: 28px;
+  }
+  section.order .order-wrap .order-card {
+    padding: 20px;
   }
 }
 
