@@ -65,10 +65,11 @@ section.service {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   overflow: hidden;
   margin: 0 auto;
   background-color: #FFF5EF;
+  padding: 100px 0 70px;
 }
 
 
@@ -79,9 +80,10 @@ section.target {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   overflow: hidden;
   margin: 0 auto;
+  padding: 100px 0 70px;
 }
 
 section.target .btn-help {
@@ -152,6 +154,7 @@ section.order .order-wrap .order-card .order-number {
 }
 section.order .order-wrap .order-card .order-content {
   font-size: 18px;
+  word-break: keep-all;
 }
 
 
@@ -162,9 +165,10 @@ section.verification {
   justify-items: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   margin: 0 auto;
   overflow: hidden;
+  padding: 50px 0;
 }
 section.verification .mockup-wrap {
   width: 90%;
@@ -231,6 +235,7 @@ section.matching .text-wrap {
 }
 section.matching .text-wrap h2 {
   text-align: center;
+  word-break: keep-all;
 }
 section.matching .text-wrap .verify-list p {
   white-space: pre-line;
@@ -272,17 +277,21 @@ section.price .grid-3 {
 }
 section.price .column {
   width: 90%;
+  height: 270px;
   box-shadow: 0px 6px 20px rgba(255, 145, 15, 0.25);
   border-radius: 10px;
   text-align: center;
-  padding: 30px 0;
+  padding: 70px 0;
   z-index: 1;
+  display: flex;
   background-color: #fff;
+  flex-direction: column;
+  justify-content: space-between;
 }
 section.price .column h2 {
   color: #FF9051;
   font-size: 23px;
-  margin: 30px 0;
+  margin: 0;
 }
 section.price .column .price-text {
   color: #484848;
@@ -292,13 +301,13 @@ section.price .column .price-text {
 }
 section.price .column .price-text span {
   color: #484848;
-  font-size: 28px;
+  font-size: 40px;
 }
 section.price .column .btn-register {
   padding: 10px 0;
   width: 60%;
   border: 1px solid #FF9051;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   color: #FF9051;
   border-radius: 10px;
   transition: all .5s;
@@ -507,6 +516,7 @@ section.contact .form-wrap .ck-button label span {
   display:block;
   padding: 10px 0;
   font-size: 16px;
+  box-sizing: border-box;
 }
 section.contact .form-wrap .ck-button label input {
   position:absolute;
@@ -568,6 +578,20 @@ section.verification .text-wrap h2.vietnamese {
   section.order .order-wrap {
     grid-template-columns: 1fr 1fr;
     gap: 90px;
+  }
+
+  section.contact .form-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 50px;
+  }
+  section.contact .form-wrap .form-child, 
+  section.contact .form-wrap .form-parent {
+    width: 100%;
+  }
+  footer .footer-wrap {
+    width: 100%;
   }
 }
 
@@ -645,18 +669,12 @@ section.verification .text-wrap h2.vietnamese {
     margin: 20px auto;
   }
 
-  section.contact .form-wrap {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    gap: 50px;
-  }
-  section.contact .form-wrap .form-child, 
-  section.contact .form-wrap .form-parent {
-    width: 100%;
-  }
   section.contact .btn-submit {
     width: 90%;
+  }
+
+  footer div p {
+    font-size: 15px;
   }
 }
 
@@ -735,5 +753,14 @@ section.verification .text-wrap h2.vietnamese {
   }
   section.price .column {
     margin: 10px auto;
+  }
+}
+
+@media all and (max-height: 900px) {
+  section.main .main-mockup {
+    width: 300px;
+  }
+  section.main .main-text .main-bg {
+    width: 50%;
   }
 }
