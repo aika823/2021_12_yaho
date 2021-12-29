@@ -12,9 +12,9 @@ jmespath==0.10.0
 mysqlclient==2.1.0
 pathspec==0.5.9
 Pillow==8.4.0
-pypiwin32==223
+# pypiwin32==223
 python-dateutil==2.8.2
-pywin32==303
+# pywin32==303
 PyYAML==5.4.1
 requests==2.26.0
 semantic-version==2.8.5
