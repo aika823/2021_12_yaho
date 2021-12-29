@@ -301,6 +301,7 @@ br.mobile {
   }
   .column-text {
     white-space: normal;
+    margin-top: 15px;
   }
 }
 @media all and (max-width: 900px) {
