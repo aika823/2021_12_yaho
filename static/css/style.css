@@ -116,6 +116,7 @@ section.order {
   margin: 0 auto;
   padding: 70px 0 120px;
   background-color: #FFF5EF;
+  height: 100%;
 }
 
 section.order .order-wrap {
@@ -675,6 +676,10 @@ section.verification .text-wrap h2.vietnamese {
     width: 150px;
     height: 150px;
   } */
+
+  section.target .btn-help {
+    width: 50%;
+  }
 }
 
 @media all and (max-width: 600px) {
