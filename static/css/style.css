@@ -129,7 +129,7 @@ section.order .order-wrap {
 section.order .order-wrap .order-card {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 150px;
   padding: 30px 20px;
   background-color: #fff;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
@@ -611,13 +611,13 @@ section.verification .text-wrap h2.vietnamese {
   section.count .count-title {
     font-size: 16px;
   }
-  section.order {
+  /* section.order {
     height: 100%;
-  }
+  } */
   section.order .order-wrap {
     grid-template-columns: 1fr 1fr;
     gap: 90px;
-    height: 100%;
+    /* height: 100%; */
   }
 
   section.contact .form-wrap {
