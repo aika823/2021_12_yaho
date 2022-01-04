@@ -642,8 +642,15 @@
     </div>
 
     <p class="date korean">기준일 ({{information.date | date:'Y.m.d'}})</p>
-    <p class="date english">As of 17th Dec 2021</p>
-    <p class="date vietnamese">Kể từ ngày 17 tháng 12 năm 2021</p>
+    <p class="date english">{{information.eng_date}}</p>
+    <p class="date vietnamese">
+      Kể từ ngày 
+      {{information.date | date:'d'}} 
+      tháng 
+      {{information.date | date:'m'}} 
+      năm
+      {{information.date | date:'Y'}}
+    </p>
   </section>
   <!-- section.count end -->
 

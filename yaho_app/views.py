@@ -1,15 +1,29 @@
 from django.shortcuts import redirect, render
 from .models import Advertisement, Application, Information
 from datetime import date
+import datetime
 
 
 
 def index(request):
     
     information = Information.objects.filter().first()
+    
     advertisement = Advertisement.objects.first()
     today = date.today()
     
+    day = int(information.date.strftime("%#d"))
+    if 4 <= day <= 20 or 24 <= day <= 30:
+        suffix = "th"
+    else:
+        suffix = ["st", "nd", "rd"][day % 10 - 1]
+
+    day_name = str(day)+suffix
+    month_name = information.date.strftime("%b")
+    year_name = information.date.strftime("%Y")
+    eng_date = "As of {} {} {}".format(day_name, month_name, year_name)
+    print(eng_date)
+    information.eng_date = eng_date
     valid = advertisement.start < today < advertisement.end
 
     context = {
