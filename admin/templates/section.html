@@ -1,0 +1,64 @@
+{%extends "admin_base.html"%}
+
+{% block content %}
+<div id="right-panel" class="right-panel">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <div class="card">
+                        <form id="formSection" action="" method="post" class="form-horizontal">
+
+                            {% csrf_token %}
+
+                            {% if section.on == '1' %}
+                            <input type="hidden" name='on' value="0">
+                            {% else %}
+                            <input type="hidden" name='on' value="1">
+                            {% endif %}
+
+                            <div class="card-header">
+                                <strong>무료체험 섹션 On/Off</strong>
+                            </div>
+
+                            <div class="card-body card-block">
+                                <div class="row form-group">
+
+                                    <div class="col col-md-3">
+                                        <label class=" form-control-label">무료체험 섹션</label>
+                                    </div>
+
+
+                                    <div class="col-12 col-md-9">
+                                        <label class="switch switch-text switch-success switch-pill"
+                                            onclick="submitForm()">
+                                            {% if section.on == '1' %}
+                                            <input type="checkbox" class="switch-input" checked>
+                                            {% else %}
+                                            <input type="checkbox" class="switch-input">
+                                            {% endif %}
+                                            <span data-on="on" data-off="Off" class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrascripts %}
+<script>
+    function submitForm() {
+        $('#formSection').submit();
+    }
+</script>
+{% endblock extrascripts %}

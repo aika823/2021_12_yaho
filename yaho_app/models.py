@@ -47,4 +47,12 @@ class Advertisement(models.Model):
 
     class Meta:
         db_table = "advertisement"
+
+
+class Section(models.Model):
+    name = models.CharField(db_column="name", null=False, max_length=20)
+    on = models.BooleanField(db_column="on", null=False)
+
+    class Meta:
+        db_table = "section"
         

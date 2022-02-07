@@ -1,7 +1,7 @@
 from django.core.checks.messages import Info
 from django.shortcuts import redirect, render
 from datetime import date, timedelta, datetime
-from yaho_app.models import Advertisement, Application, Information, Admin
+from yaho_app.models import Advertisement, Application, Information, Admin, Section
 
 
 def loged_in(request):
@@ -84,8 +84,6 @@ def advertisement(request):
         if advertisement is None:
             advertisement = Advertisement()
         
-        print(advertisement)
-
         if request.method == "POST":
             
             advertisement.start = request.POST.get("start")
@@ -103,5 +101,26 @@ def advertisement(request):
             return render(request, "advertisement.html", {'advertisement':advertisement})
 
 
+    else:
+        return redirect('/admin/login')
+
+
+def section(request):
+    if loged_in(request):
+        
+        section = Section.objects.get(name='free')
+
+        if request.method == "POST":
+            section.on = request.POST.get('on')
+            section.save()
+            context = {
+                'section':section,
+            }
+            return render(request, "section.html", context=context)
+        else:
+            context = {
+                'section':section,
+            }
+            return render(request, "section.html", context=context)
     else:
         return redirect('/admin/login')
